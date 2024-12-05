@@ -1,0 +1,8 @@
+<div *ngIf="cv">
+  <img [src]="cv.image" alt="Avatar" />
+  <h2>{{ cv.nom }}</h2>
+  <h3>{{ cv.job }}</h3>
+  <p>{{ cv.description }}</p>
+
+  <button class="btn btn-success" (click)="onEmbaucher()">Embaucher</button>
+</div>

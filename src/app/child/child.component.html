@@ -1,0 +1,10 @@
+<div>
+   
+    <p>Ma couleur préférée est : {{ myFavoriteColor }}</p>
+    <div [ngStyle]="{'background-color': color}">
+        Je suis le composant Child et mon fond est de couleur : {{ color }}
+      </div>
+   
+    <button (click)="changeColor()">Changer la couleur du fond du Parent</button>
+  </div>
+  

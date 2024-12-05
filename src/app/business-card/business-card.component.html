@@ -1,0 +1,101 @@
+<div class="container "style="background-color: #e5e9ed ;">
+  <br>
+  <h2>Two Way Binding </h2>
+  <br>
+  <div class="row" >
+    <!-- Card Column -->
+    <div class="col-md-6 card-container ">
+      <div class="card ">
+        <div class="front">
+          <div class="cover">
+            <img src="assets/images/rotating_card_thumb2.png" alt="Cover Image" />
+          </div>
+          <div class="user">
+            <img class="img-circle" [src]="image" alt="Profile Image" />
+          </div>
+          <div class="content">
+            <div class="main">
+              <h3 class="name">{{ nom }} {{ prenom }}</h3>
+              <p class="profession">{{ job }}</p>
+              <p class="text-center">{{ citation }}</p>
+            </div>
+            <div class="footer">
+              <div class="rating">
+                <i class="fa fa-mail-forward"></i> Auto Rotation
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end front panel -->
+        <div class="back">
+          <div class="header">
+            <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+          </div>
+          <div class="content">
+            <div class="main">
+              <h4 class="text-center">{{ description }}</h4>
+              <p class="text-center">{{ motsCle }}</p>
+              <div class="stats-container">
+                <div class="stats">
+                  <h4>235</h4>
+                  <p>Followers</p>
+                </div>
+                <div class="stats">
+                  <h4>114</h4>
+                  <p>Following</p>
+                </div>
+                <div class="stats">
+                  <h4>35</h4>
+                  <p>Projects</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <div class="social-links text-center">
+              <a href="https://creative-tim.com" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+              <a href="https://creative-tim.com" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+              <a href="https://creative-tim.com" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- end back panel -->
+      </div>
+      <!-- end card -->
+    </div>
+
+    <!-- Form Column -->
+    <div class="col-md-6">
+      <form>
+        <div class="form-group">
+          <label for="nom">Nom :</label>
+          <input [(ngModel)]="nom" type="text" id="nom" name="nom" class="form-control" placeholder="Nom">
+        </div>
+        <div class="form-group">
+          <label for="prenom">Prénom :</label>
+          <input [(ngModel)]="prenom" type="text" id="prenom" name="prenom" class="form-control" placeholder="Prénom">
+        </div>
+        <div class="form-group">
+          <label for="job">Job :</label>
+          <input [(ngModel)]="job" type="text" id="job" name="job" class="form-control" placeholder="Job">
+        </div>
+        <div class="form-group">
+          <label for="image">Image :</label>
+          <input [(ngModel)]="image" type="text" id="image" name="image" class="form-control" placeholder="URL de l'image">
+        </div>
+        <div class="form-group">
+          <label for="citation">Citation Favorite :</label>
+          <input [(ngModel)]="citation" type="text" id="citation" name="citation" class="form-control" placeholder="Citation">
+        </div>
+        <div class="form-group">
+          <label for="description">Décrivez nous votre Travail :</label>
+          <textarea [(ngModel)]="description" id="description" name="description" class="form-control" placeholder="Description du travail"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="motsCle">Mots clé de votre travail :</label>
+          <input [(ngModel)]="motsCle" type="text" id="motsCle" name="motsCle" class="form-control" placeholder="Mots clé">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="row">
+  <!-- Liste des CVs -->
+  <div class="col-md-4">
+    <div *ngFor="let cv of cvList" (click)="selectCv(cv)" class="cv-item">
+      <img [src]="cv.image" alt="avatar" class="avatar">
+      <p>{{ cv.nom }}</p>
+    </div>
+  </div>
+
+  <!-- Détails du CV sélectionné -->
+  <div class="col-md-8" *ngIf="selectedCv">
+    <h3>"{{ selectedCv.citation }}"</h3>
+    <h5>{{ selectedCv.job }}</h5>
+    <p>{{ selectedCv.description }}</p>
+    <div>
+      <span>{{ selectedCv.motsCle }}</span>
+    </div>
+    <button (click)="embaucher(selectedCv)" class="btn btn-primary">Embaucher</button>
+    <button class="btn btn-secondary">Détail</button>
+  </div>
+</div>
+
+<!-- Liste des personnes présélectionnées -->
+<div>
+  <h4>Liste des personnes pré sélectionnées :</h4>
+  <div *ngFor="let cv of embaucheService.getEmbaucheList()" class="selected-cv">
+    <img [src]="cv.image" alt="avatar" class="avatar">
+    <p>{{ cv.nom }}</p>
+  </div>
+</div>
+
+
+

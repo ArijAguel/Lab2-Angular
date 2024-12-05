@@ -1,0 +1,38 @@
+<div class="mini-word">
+    <!-- Paragraph with Dynamic Styles -->
+    <p 
+      [ngStyle]="{
+        'color': paragraphColor,
+        'font-size.px': fontSize,
+        'font-family': fontFamily
+      }"
+    >
+      Test
+    </p>
+
+    <!-- Color Picker -->
+    <label for="color">Couleur du paragraphe :</label>
+    <input
+      id="color"
+      type="color"
+      [(ngModel)]="paragraphColor"
+    />
+  
+    <!-- Font Size Input -->
+    <label for="fontSize">Taille de la police :</label>
+    <input
+      id="fontSize"
+      type="number"
+      [(ngModel)]="fontSize"
+      placeholder="Entrez la taille en pixels"
+    />
+  
+    <!-- Font Family Selector -->
+    <label for="fontFamily">Police :</label>
+    <select id="fontFamily" [(ngModel)]="fontFamily">
+      <option *ngFor="let font of fonts" [value]="font">{{ font }}</option>
+    </select>
+  
+    
+  </div>
+  

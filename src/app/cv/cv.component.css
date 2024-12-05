@@ -1,0 +1,156 @@
+.cv-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    height: 100%; /* Ensure it fills the full height */
+    min-height: 100vh; /* Guarantees full viewport height */
+    width: 100%; /* Ensures it spans the entire width */
+    padding: 20px;
+    background-color: #4f7e94;
+    box-sizing: border-box;
+    overflow: auto; /* Adds scroll if content exceeds viewport size */
+}
+  
+  /* Left Section: CV List */
+  .cv-list-container {
+    flex: 1; /* Takes up 1 part of the space */
+    max-width: 300px; /* Maximum width for the list */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    overflow-y: auto; /* Scrollable content */
+  }
+  
+  .list-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  /* List of CVs */
+  .cv-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Individual CV Item */
+  .cv-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+  }
+  
+  .cv-item:hover {
+    background-color: #f7f9fc;
+    transform: translateY(-2px);
+  }
+  
+  .cv-item.active {
+    background-color: #f0f0f5;
+    border-color: #007bff;
+  }
+  
+  /* CV Image */
+  .cv-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* CV Details */
+  .cv-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cv-details h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .cv-details p {
+    margin: 0;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  /* Right Section: CV Detail */
+  .cv-detail-container {
+    flex: 2; /* Takes up 2 parts of the available space */
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: flex-start; /* Aligns content to the top */
+    padding: 20px;
+    background-color: transparent; /* Matches the main background */
+    min-height: 100%; /* Ensures the section occupies full height */
+    box-sizing: border-box; /* Avoids padding affecting width/height */
+}
+
+.embauche-list {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+.embauche-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+
+.cv-item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cv-item img.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.selected-cv {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.selected-cv img.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+button {
+  margin-right: 10px;
+}
+
+
+@media (min-width: 1024px) {
+    .cv-detail-container {
+        padding: 40px; /* Add more space around on larger screens */
+    }
+
+    .cv-detail-card {
+        max-width: 900px; /* Allow the card to be wider */
+    }
+}

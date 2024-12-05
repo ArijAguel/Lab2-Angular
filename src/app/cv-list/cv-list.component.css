@@ -1,0 +1,29 @@
+.cv-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer; /* Indicates it's clickable */
+    transition: background-color 0.2s ease;
+  }
+  
+  .cv-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .cv-item img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .cv-item span {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .cv-item:last-child {
+    border-bottom: none; /* Remove bottom border for the last item */
+  }
+  

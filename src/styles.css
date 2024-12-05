@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "node_modules/font-awesome/css/font-awesome.min.css";
+
+.toast-success {
+    background-color: #28a745 !important; /* Couleur verte pour le succès */
+    color: white;
+  }
+  .toast-error {
+    background-color: #dc3545 !important; /* Couleur rouge pour les erreurs */
+    color: white;
+  }
+  
+

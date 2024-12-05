@@ -1,0 +1,20 @@
+.is-invalid {
+    border-color: red;
+  }
+  
+  .invalid-feedback {
+    color: red;
+    font-size: 12px;
+  }
+  
+
+  .error-msg {
+    background-color: #f8d7da; /* Rouge clair pour le fond */
+    color: #721c24; /* Rouge foncé pour le texte */
+    border: 1px solid #f5c6cb; /* Bordure rouge clair */
+    border-radius: 5px; /* Bordure arrondie */
+    padding: 8px; /* Espacement interne */
+    margin-top: 5px; /* Espacement par rapport au champ */
+    font-size: 0.9em; /* Taille de texte légèrement réduite */
+  }
+  

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="color-box" #divElement [style.background]="color">
+    <!-- Ce div changera de couleur -->
+    <p class="color-text">La couleur actuelle est : {{ color }}</p>
+  </div>
+
+  <div class="color-input-container">
+    <label for="input-color" class="input-label">Entrez une couleur  :</label>
+    <input type="text" id="input-color" [(ngModel)]="color" placeholder="e.g. red" class="color-input" />
+  </div>
+
+  <!-- Bouton pour réinitialiser la couleur -->
+  <button (click)="resetColor(divElement)" class="reset-button">Réinitialiser la couleur</button>
+</div>

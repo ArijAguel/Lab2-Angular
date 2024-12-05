@@ -1,0 +1,74 @@
+.cv-detail-container {
+    flex: 3; /* Make it take up more space compared to the CV list */
+    display: flex;
+    justify-content: center; /* Center align the detailed CV card */
+    align-items: center;
+    padding: 40px; /* Increase padding for more breathing room */
+    background-color: transparent;
+    max-width: 800px; /* Optional: limit the max width for better control */
+}
+
+.cv-detail {
+    text-align: center;
+  }
+  
+  .cv-detail img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cv-detail h2 {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .cv-detail h3 {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #777;
+  }
+  
+  .cv-detail p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  .cv-detail .quote {
+    font-style: italic;
+    margin-top: 20px;
+    color: #666;
+  }
+  
+  .cv-detail-card {
+    width: 150%; /* Makes the card take the full available width */
+    max-width: 1000px; /* Adjust the maximum width as necessary */
+    background-color: #ffffff; /* Add a background color for contrast */
+    border-radius: 10px; /* Adds subtle rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    padding: 30px; /* Adds inner spacing for the content */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Adds spacing between form fields or sections */
+    box-sizing: border-box; /* Prevents padding from affecting dimensions */
+}
+
+
+.cv-detail-card input,
+.cv-detail-card select,
+.cv-detail-card textarea {
+    width: 90%; /* Expand input fields to fill more space */
+    padding: 10px; /* Add more padding inside fields */
+    margin-bottom: 15px; /* Add spacing between fields */
+    font-size: 14px; /* Slightly increase input font size */
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Maintain a clean border */
+}
+
+.cv-detail-card {
+    min-height: 400px; /* Adjust to preferred size */
+}

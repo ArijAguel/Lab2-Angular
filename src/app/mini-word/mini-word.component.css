@@ -1,0 +1,38 @@
+.mini-word {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    display: flex;
+    align-items: center; /* Vertically align items */
+    gap: 20px; /* Add space between the elements */
+  }
+  
+  label {
+    margin-right: 5px;
+  }
+  
+  input[type="color"] {
+    width: 200px; /* Increase the width of the color picker */
+    height: 25px; /* Increase the height of the color picker */
+    border: none; /* Remove any borders */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    cursor: pointer; /* Show a pointer cursor on hover */
+  }
+  
+  input[type="number"],
+  select {
+    padding: 5px;
+    width: auto; /* Auto width to fit content */
+  }
+  
+  p {
+    width: 200px; /* Set a fixed width for the paragraph */
+    height: 100px; /* Set a fixed height for the paragraph */
+    margin-left: 20px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+    line-height: 1.5;
+  }
+  

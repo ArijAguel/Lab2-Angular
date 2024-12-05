@@ -1,0 +1,12 @@
+<p>embauche-list works!</p>
+
+<div *ngIf="embaucheList.length > 0" class="embauche-list">
+    <h2>Liste des Embauchés</h2>
+    <ul>
+      <li *ngFor="let cv of embaucheList">
+        <img [src]="cv.image" alt="Avatar" class="embauche-avatar" />
+        {{ cv.nom }} - {{ cv.job }}
+      </li>
+    </ul>
+  </div>
+  

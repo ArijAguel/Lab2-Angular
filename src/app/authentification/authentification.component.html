@@ -1,0 +1,43 @@
+<div class="auth-form">
+    <h2>Formulaire d'authentification</h2>
+  
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+      <!-- Champ Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': authForm.get('email')?.invalid && (authForm.get('email')?.touched || authForm.get('email')?.dirty) }"
+        />
+        <div *ngIf="authForm.get('email')?.invalid && (authForm.get('email')?.touched || authForm.get('email')?.dirty)" class="error-msg">
+          <small *ngIf="authForm.get('email')?.errors?.['required']">L'email est requis.</small>
+          <small *ngIf="authForm.get('email')?.errors?.['email']">L'email n'est pas valide.</small>
+        </div>
+      </div>
+  
+      <!-- Champ Mot de Passe -->
+      <div class="form-group">
+        <label for="password">Mot de Passe</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': authForm.get('password')?.invalid && (authForm.get('password')?.touched || authForm.get('password')?.dirty) }"
+        />
+        <div *ngIf="authForm.get('password')?.invalid && (authForm.get('password')?.touched || authForm.get('password')?.dirty)" class="error-msg">
+          <small *ngIf="authForm.get('password')?.errors?.['required']">Le mot de passe est requis.</small>
+          <small *ngIf="authForm.get('password')?.errors?.['minlength']">Le mot de passe doit avoir au moins 4 caractères.</small>
+        </div>
+      </div>
+  
+      <!-- Bouton Envoyer -->
+      <button type="submit" class="btn btn-primary" [disabled]="authForm.invalid">
+        Envoyer
+      </button>
+    </form>
+  </div>
+  
