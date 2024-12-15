@@ -1,8 +1,15 @@
-<div *ngIf="cv">
-  <img [src]="cv.image" alt="Avatar" />
-  <h2>{{ cv.nom }}</h2>
-  <h3>{{ cv.job }}</h3>
-  <p>{{ cv.description }}</p>
+<div *ngIf="cv" class="cv-detail">
+  <h1>CV {{ cv.nom }} {{ cv.prenom }}</h1>
+  <img [src]="cv.image" alt="avatar" class="avatar" />
 
-  <button class="btn btn-success" (click)="onEmbaucher()">Embaucher</button>
+  <div class="info-section">
+    <h3>Informations</h3>
+    <p><strong>Name:</strong> {{ cv.nom }}</p>
+    <p><strong>Firstname:</strong> {{ cv.prenom }}</p>
+    <p><strong>Job:</strong> {{ cv.job }}</p>
+    <p><strong>Description:</strong> {{ cv.description }}</p>
+    <p><strong>Keywords:</strong> {{ cv.motsCle }}</p>
+  </div>
+
+  <button class="btn btn-danger" (click)="deleteCv()">Supprimer</button>
 </div>

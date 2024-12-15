@@ -7,6 +7,7 @@ import { Component1Component } from './component1/component1.component';
 import { TestDefaultImageComponent } from './test-default-image/test-default-image.component';
 import { MiniWordComponent } from './mini-word/mini-word.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
+import { CvDetailComponent } from './cv-detail/cv-detail.component';
 
 const routes: Routes = [
   { path: 'parent', component: ParentComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'mini-word', component: MiniWordComponent },
   { path: 'authentification', component: AuthentificationComponent },
   { path: '', redirectTo: '/cv', pathMatch: 'full' }, // Redirection par défaut
+  { path: 'cv/:id', component: CvDetailComponent },
 ];
 
 @NgModule({

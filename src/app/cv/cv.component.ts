@@ -43,7 +43,7 @@ export class CvComponent {
     }
   ];
 
-  selectedCv = this.cvList[0]; // Default selected CV
+  selectedCv: Cv | null = null;
 
   constructor(
     public cvService: CvService,
@@ -51,6 +51,14 @@ export class CvComponent {
     public toastr: ToastrService 
 
   ) {}
+
+  ngOnInit(): void {
+    this.loadCvList();
+  }
+
+  loadCvList(): void {
+    this.cvList = this.cvService.getCvs(); // Récupérer la liste des CVs après suppression
+  }
   
   selectCv(cv: any) {
     this.selectedCv = cv; // Update selected CV
@@ -62,5 +70,18 @@ export class CvComponent {
     } else {
       this.toastr.error(`${cv.prenom} ${cv.nom} est déjà embauché.`);
     }  }
+
+    
+
+    deleteCv(cv: Cv): void {
+      this.cvService.deleteCv(cv.id); // Supprimer le CV du service
+      this.loadCvList(); // Rafraîchir la liste des CVs
+    }
+  
+    // Méthode pour écouter l'événement de suppression depuis le composant enfant
+    handleCvDeletion(cvId: number): void {
+      // Mettre à jour la liste des CVs après suppression
+      this.cvList = this.cvList.filter(cv => cv.id !== cvId);
+    }
 
 }

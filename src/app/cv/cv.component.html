@@ -16,7 +16,7 @@
       <span>{{ selectedCv.motsCle }}</span>
     </div>
     <button (click)="embaucher(selectedCv)" class="btn btn-primary">Embaucher</button>
-    <button class="btn btn-secondary">Détail</button>
+    <button class="btn btn-secondary" [routerLink]="['/cv', selectedCv.id]">Détails</button>
   </div>
 </div>
 
@@ -28,6 +28,5 @@
     <p>{{ cv.nom }}</p>
   </div>
 </div>
-
 
 

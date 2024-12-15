@@ -41,4 +41,17 @@ export class CvService {
   getCvs(): Cv[] {
     return this.cvList;
   }
+
+  getCvById(id: number): Cv | undefined {
+    return this.cvList.find((cv) => cv.id === id);
+  }
+
+   // Méthode pour supprimer un CV
+   deleteCv(id: number): void {
+    const index = this.cvList.findIndex((cv) => cv.id === id);
+    if (index !== -1) {
+      this.cvList.splice(index, 1); // Supprime le CV de la liste
+    }
+  }
+  
 }
