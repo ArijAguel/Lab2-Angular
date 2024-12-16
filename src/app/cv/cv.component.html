@@ -1,6 +1,15 @@
 <div class="row">
   <!-- Liste des CVs -->
   <div class="col-md-4">
+
+    <app-images
+    [images]="['assets/images/rotating_card_profile.png', 'assets/images/rotating_card_profile2.png', 'assets/images/rotating_card_profile3.png']"
+    [intervalTime]="3000"
+    [width]="100"
+    [height]="100"
+    altText="Carousel image"
+    ></app-images>
+
     <div *ngFor="let cv of cvList" (click)="selectCv(cv)" class="cv-item">
       <img [src]="cv.image" alt="avatar" class="avatar">
       <p>{{ cv.nom }}</p>

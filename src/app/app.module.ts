@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';  // Import du module React
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { ImagesComponent } from './images/images.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     EmbaucheListComponent,
     HeaderComponent,
     AuthentificationComponent,
+    ImagesComponent,
   ],
   imports: [
     BrowserModule,
