@@ -14,9 +14,16 @@ export class CvListComponent implements OnInit {
   constructor(private cvService: CvService) {}
 
   ngOnInit(): void {
-    this.cvs = this.cvService.getCvs();
+    this.cvService.getCvs().subscribe(
+      (data: Cv[]) => {
+        this.cvs = data; // Populate the list with the retrieved data
+      },
+      (error) => {
+        console.error('Error fetching CVs:', error);
+        // The error will already be handled and displayed by the service
+      }
+    );
   }
-
   onSelect(cv: Cv): void {
     this.cvSelected.emit(cv);
   }

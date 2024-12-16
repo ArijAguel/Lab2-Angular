@@ -57,7 +57,15 @@ export class CvComponent {
   }
 
   loadCvList(): void {
-    this.cvList = this.cvService.getCvs(); // Récupérer la liste des CVs après suppression
+    this.cvService.getCvs().subscribe(
+      (data: Cv[]) => {
+        this.cvList = data;  // Affecter les CVs récupérés à la liste
+      },
+      (error) => {
+        // Gérer l'erreur si nécessaire
+        this.toastr.error('Une erreur est survenue lors de la récupération des CVs.');
+      }
+    );
   }
   
   selectCv(cv: any) {

@@ -21,7 +21,7 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { ReactiveFormsModule } from '@angular/forms';  // Import du module ReactiveFormsModule
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -47,6 +47,7 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule ,
+    HttpClientModule,
     BrowserAnimationsModule, // Requis pour les animations de ngx-toastr
     ToastrModule.forRoot({
       timeOut: 3000, // Durée du toast

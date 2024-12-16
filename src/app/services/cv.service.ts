@@ -1,11 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Cv } from '../models/cv.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr'; 
 
 @Injectable({
   providedIn: 'root',
 })
 export class CvService {
-  private cvList: Cv[] = [
+
+  private apiUrl = 'https://apilb.tridevs.net/explorer/';
+  private cvList: Cv[] = []; 
+  constructor(private http: HttpClient, private toastr: ToastrService) {}
+
+   // Méthode pour obtenir des CVs factices
+   getFakeCvs(): Cv[] {
+    return [
     {
       id:1,
       nom: 'Inna',
@@ -37,11 +48,28 @@ export class CvService {
       motsCle: 'UX, UI, Figma, Adobe XD'
     }
   ];
+}
 
+  /*
   getCvs(): Cv[] {
     return this.cvList;
   }
+  */
 
+  // Méthode pour récupérer les CVs depuis l'API
+  getCvs(): Observable<Cv[]> {
+    return this.http.get<Cv[]>(this.apiUrl).pipe(
+      catchError(error => {
+        this.toastr.error('Erreur lors de la récupération des CVs.', 'Erreur');
+        console.error('Erreur lors de la récupération des CVs:', error);
+        
+        // Retourner des CVs factices si une erreur se produit
+        this.cvList = this.getFakeCvs();
+        return of(this.cvList);
+      })
+    );
+  }
+  
   getCvById(id: number): Cv | undefined {
     return this.cvList.find((cv) => cv.id === id);
   }
