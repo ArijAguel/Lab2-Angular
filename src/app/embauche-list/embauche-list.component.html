@@ -4,8 +4,8 @@
     <h2>Liste des Embauchés</h2>
     <ul>
       <li *ngFor="let cv of embaucheList">
-        <img [src]="cv.image" alt="Avatar" class="embauche-avatar" />
-        {{ cv.nom }} - {{ cv.job }}
+        <img [src]="cv.path" alt="Avatar" class="embauche-avatar" />
+        {{ cv.name }} - {{ cv.job }}
       </li>
     </ul>
   </div>

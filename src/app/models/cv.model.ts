@@ -1,9 +1,11 @@
 export interface Cv {
   id: number;
-  nom: string;
-  prenom: string;
+  name: string;
+  firstname: string;
   job: string;
-  image:string;
+  age: number;
+  cin: number;
+  path:string;
   description: string;
   citation: string; // Propriété requise
   motsCle: string;  // Propriété requise

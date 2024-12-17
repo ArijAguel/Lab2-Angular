@@ -13,30 +13,36 @@ export class CvComponent {
   cvList = [
     {
       id: 1,
-      nom: 'Inna',
-      prenom: 'Corman',
+      name: 'Inna',
+      firstname: 'Corman',
       job: 'Product Manager',
-      image: 'assets/images/rotating_card_profile.png',
+      age: 30,
+      cin:1234,
+      path: 'assets/images/rotating_card_profile.png',
       citation: 'I\'m the new Sinatra, and since I made it here I can make it anywhere.',
       description: 'Web design, Adobe Photoshop, HTML5, CSS3, Corel, and many others...',
       motsCle: 'HTML, CSS, JS, PHP'
     },
     {
       id: 2,
-      nom: 'John',
-      prenom: 'Doe',
+      name: 'John',
+      firstname: 'Doe',
       job: 'Software Engineer',
-      image: 'assets/images/rotating_card_profile2.png',
+      age: 13,
+      cin:12634,
+      path: 'assets/images/rotating_card_profile2.png',
       citation: 'Code is poetry.',
       description: 'Full-stack development, JavaScript frameworks, REST APIs, databases...',
       motsCle: 'JavaScript, Angular, Node.js'
     },
     {
       id: 3,
-    nom: 'Jane',
-      prenom: 'Smith',
+    name: 'Jane',
+      firstname: 'Smith',
       job: 'UX Designer',
-      image: 'assets/images/rotating_card_profile3.png',
+      age: 30,
+      cin:134,
+      path: 'assets/images/rotating_card_profile3.png',
       citation: 'Design is intelligence made visible.',
       description: 'User research, wireframes, prototyping, Adobe XD, and Figma...',
       motsCle: 'UX, UI, Figma, Adobe XD'
@@ -74,9 +80,9 @@ export class CvComponent {
 
   embaucher(cv: Cv) {
     if (this.embaucheService.addEmbauche(cv)) {
-      this.toastr.success(`${cv.prenom} ${cv.nom} a été embauché avec succès !`);
+      this.toastr.success(`${cv.firstname} ${cv.name} a été embauché avec succès !`);
     } else {
-      this.toastr.error(`${cv.prenom} ${cv.nom} est déjà embauché.`);
+      this.toastr.error(`${cv.firstname} ${cv.name} est déjà embauché.`);
     }  }
 
     
