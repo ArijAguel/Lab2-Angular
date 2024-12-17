@@ -11,7 +11,7 @@
     ></app-images>
 
     <div *ngFor="let cv of cvList" (click)="selectCv(cv)" class="cv-item">
-      <img [src]="cv.path" alt="avatar" class="avatar">
+      <img [src]="getImagePath(cv.path)" alt="avatar" class="avatar">
       <p>{{ cv.name }}</p>
     </div>
   </div>
@@ -33,7 +33,7 @@
 <div>
   <h4>Liste des personnes pré sélectionnées :</h4>
   <div *ngFor="let cv of embaucheService.getEmbaucheList()" class="selected-cv">
-    <img [src]="cv.path" alt="avatar" class="avatar">
+    <img [src]="getImagePath(cv.path)" alt="avatar" class="avatar">
     <p>{{ cv.name }}</p>
   </div>
 </div>

@@ -61,6 +61,9 @@ export class CvComponent {
   ngOnInit(): void {
     this.loadCvList();
   }
+  getImagePath(path: string): string {
+    return `assets/images/${path}`;
+  }
 
   loadCvList(): void {
     this.cvService.getCvs().subscribe(

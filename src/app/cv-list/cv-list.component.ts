@@ -24,7 +24,10 @@ export class CvListComponent implements OnInit {
       }
     );
   }*/
-
+  
+    getImagePath(path: string): string {
+      return `assets/images/${path}`;
+    }
     onSelect(cv: Cv): void {
       console.log('Selected CV:', cv);
       //this.cvSelected.emit(cv);
