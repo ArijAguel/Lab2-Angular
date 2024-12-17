@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Cv } from '../models/cv.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of , Subject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr'; 
 
@@ -12,6 +12,10 @@ export class CvService {
 
   private apiUrl = 'https://apilb.tridevs.net/explorer/';
   private cvList: Cv[] = []; 
+  //page12-new subject
+  private cvListSubject = new Subject<Cv[]>(); 
+  private embaucheCvSubject = new Subject<Cv>(); 
+
   constructor(private http: HttpClient, private toastr: ToastrService) {}
 
    // Méthode pour obtenir des CVs factices
@@ -62,7 +66,6 @@ export class CvService {
       catchError(error => {
         this.toastr.error('Erreur lors de la récupération des CVs.', 'Erreur');
         console.error('Erreur lors de la récupération des CVs:', error);
-        
         // Retourner des CVs factices si une erreur se produit
         this.cvList = this.getFakeCvs();
         return of(this.cvList);
@@ -74,12 +77,32 @@ export class CvService {
     return this.cvList.find((cv) => cv.id === id);
   }
 
-   // Méthode pour supprimer un CV
+  /* // Méthode pour supprimer un CV
    deleteCv(id: number): void {
     const index = this.cvList.findIndex((cv) => cv.id === id);
     if (index !== -1) {
       this.cvList.splice(index, 1); // Supprime le CV de la liste
     }
-  }
+  }*/
+    deleteCv(id: number): void {
+      const index = this.cvList.findIndex((cv) => cv.id === id);
+      if (index !== -1) {
+        this.cvList.splice(index, 1); 
+        this.cvListSubject.next(this.cvList); // Notify subscribers of the updated list
+      }
+    }
+    embaucheCv(cv: Cv): void {
+      // Notify subscribers that a CV est embauché
+      this.embaucheCvSubject.next(cv);
+    }
   
+    // Return observable to listen for list changes
+  getCvListUpdates(): Observable<Cv[]> {
+    return this.cvListSubject.asObservable();
+  }
+
+  // Return observable to listen for hire events
+  getCvEmbaucheUpdates(): Observable<Cv> {
+    return this.embaucheCvSubject.asObservable();
+  }
 }

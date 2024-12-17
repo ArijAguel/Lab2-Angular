@@ -10,8 +10,8 @@ import { Cv } from '../models/cv.model';
 })
 export class CvDetailComponent implements OnInit {
   @Input() cv!: Cv;
-  @Output() embaucher = new EventEmitter<Cv>();
-  @Output() deleteCvEvent = new EventEmitter<number>(); // Événement de suppression
+  //@Output() embaucher = new EventEmitter<Cv>();
+  //@Output() deleteCvEvent = new EventEmitter<number>(); // Événement de suppression
 
   constructor(
     private route: ActivatedRoute,
@@ -31,9 +31,12 @@ export class CvDetailComponent implements OnInit {
     }
   }
 
-  onEmbaucher(): void {
+  /*onEmbaucher(): void {
     this.embaucher.emit(this.cv); // Émettre l'événement au parent
-  }
+  }*/
+    onEmbaucher(): void {
+      this.cvService.embaucheCv(this.cv); // Notify subscribers that this CV est embauché
+    }
 
   deleteCv(): void {
       this.cvService.deleteCv(this.cv.id); // Supprimer le CV du service
@@ -41,7 +44,7 @@ export class CvDetailComponent implements OnInit {
       this.router.navigate(['/cv']); // Rediriger vers la page des CVs
 
       // Émettre l'événement de suppression au parent
-      this.deleteCvEvent.emit(this.cv.id);
+      //this.deleteCvEvent.emit(this.cv.id);
     
   }
 }

@@ -1,4 +1,6 @@
 import { Component, Output, EventEmitter,Input } from '@angular/core';
+import { CvService } from '../services/cv.service';
+
 
 @Component({
   selector: 'app-child',
@@ -7,7 +9,8 @@ import { Component, Output, EventEmitter,Input } from '@angular/core';
 })
 export class ChildComponent {
   myFavoriteColor: string = 'lightgreen';  
-  @Output() colorChanged: EventEmitter<string> = new EventEmitter();  
+  colorChanged: EventEmitter<string> = new EventEmitter(); 
+
 
   @Input() color: string = '';
   changeColor(): void {

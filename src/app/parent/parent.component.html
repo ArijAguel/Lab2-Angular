@@ -1,4 +1,8 @@
 <div [style.background-color]="backgroundColor">
-    <app-child (colorChanged)="changeBackgroundColor($event)" [color]="backgroundColor"></app-child> 
+  <app-child
+  (colorChanged)="changeBackgroundColor($event)"
+  [color]="backgroundColor"
+></app-child>
+
   </div>
   
