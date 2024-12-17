@@ -31,7 +31,7 @@ export class CvListComponent implements OnInit {
     }
   
     ngOnInit(): void {
-      this.cvService.getCvListUpdates().subscribe((updatedCvs: Cv[]) => {
+      this.cvService.getCvListUpdates().subscribe((updatedCvs) => {
         this.cvs = updatedCvs; 
       });      
 

@@ -5,12 +5,13 @@ import { Observable, of , Subject } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr'; 
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class CvService {
 
-  private apiUrl = 'https://randomapi.com/api/0de6a6ff4b0afe4c74888d0bb8c8ba86';
+  private apiUrl = 'https://apilb.tridevs.net/api/personnes';
 
   private cvList: Cv[] = []; 
   //page12-new subject
@@ -69,15 +70,17 @@ export class CvService {
 
   // Méthode pour récupérer les CVs depuis l'API
   getCvs(): Observable<Cv[]> {
-    return this.http.get<any>(this.apiUrl).pipe(
-      map(response => response.results), // Assuming the API response structure
+    return this.http.get<Cv[]>(this.apiUrl).pipe(
       catchError(error => {
+        // Display an error toast message
         this.toastr.error('Erreur lors de la récupération des CVs.', 'Erreur');
         console.error('Erreur lors de la récupération des CVs:', error);
+  
+        // Provide fallback fake data
         this.cvList = this.getFakeCvs();
         return of(this.cvList);
       }),
-      tap(cvList => this.cvList = cvList) // Update the cvList after a successful call
+      tap(cvList => this.cvList = cvList) // Update cvList after a successful call
     );
   }
   
